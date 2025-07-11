@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hud-text:
+    '// COMMAND_NODE KERNEL V4.2.1-GAMMA\A'
+    '// BOOT SEQUENCE INITIATED...\A'
+    'TIMESTAMP: 9851.04.28\A\A'
+    '[INFO] Loading Core Modules...\A'
+    '[OK] Quantum Core Processor... CALIBRATED\A'
+    '[OK] Heuristic AI Subroutines... ONLINE\A'
+    '[OK] Astrogation Database (Stellarmap v9.8)... SYNCED\A'
+    '[OK] Realm Intelligence Systems Interface... ACTIVE\A'
+    '[OK] Subspace Comms Array... LINK ESTABLISHED\A'
+    '[OK] Biometric Signature... VERIFIED: [COMMANDER]\A'
+    '[OK] All primary systems nominal.\A\A'
+    '// ESTABLISHING CONNECTION TO THE REALM...\A'
+    '>> Pinging Node Prime... ACK\A'
+    '>> Authenticating with Omega Protocol... GRANTED\A'
+    '>> Data Stream Latency: 0.0014ns (Optimal)\A'
+    '// REALM CONNECTION ESTABLISHED.\A\A\A'
+    '// INITIATING SECTOR-WIDE DIAGNOSTICS...\A'
+    'SCANNING: Deployed Intelligence Constructs\A'
+    '------------------------------------\A'
+    'PID 4041: [RAG_PIPELINE_ALPHA]\A'
+    '  STATUS: ACTIVE\A'
+    '  OP: Ingesting stellar-wind data from NGC 604.\A'
+    '  LOAD: 18.3%\A'
+    'PID 5501: [COGNITIVE_ARCH_BETA]\A'
+    '  STATUS: IDLE (THINKING)\A'
+    '  OP: Simulating protein folding in zero-g.\A'
+    '  LOAD: 8.1%\A'
+    'PID 7200: [CIA_PERSUASION_MODEL]\A'
+    '  STATUS: STANDBY\A'
+    '  OP: Awaiting diplomatic sub-routine trigger.\A'
+    '  LOAD: 0.5%\A'
+    'PID 9000: [AUTONOMOUS_HEALTH_AI]\A'
+    '  STATUS: ACTIVE\A'
+    '  OP: Monitoring Commander\'s vitals... [NOMINAL]\A'
+    '  LOAD: 2.2%\A'
+    '------------------------------------\A'
+    '[INFO] All constructs responding within parameters.\A\A\A'
+    '// EXECUTING PERIMETER SENSOR SWEEP...\A'
+    '[SCAN] Quadrant Alpha-7...\A'
+    '>> Detecting residual ion trails... consistent with Class-C freighter.\A'
+    '[SCAN] Quadrant Beta-2...\A'
+    '>> Clear. No anomalies.\A'
+    '[SCAN] Quadrant Gamma-9...\A'
+    '>> Minor gravimetric distortions detected.\A'
+    '>> Cross-referencing with known phenomena...\A'
+    '>> MATCH: Micrometeoroid cluster. Trajectory non-threatening.\A'
+    '[INFO] Sensor sweep complete. Local space is clear of immediate threats.\A\A\A'
+    '// RUNNING TECH STACK INTEGRITY CHECK...\A'
+    '[INFO] Verifying core language compilers...\A'
+    '>> Python v3.99 (Quantum Optimized)... OK\A'
+    '>> TypeScript v5.8 (Static Analysis)... OK\A'
+    '>> GLSL Shader Pipeline... OK\A'
+    '[INFO] Checking framework links...\A'
+    '>> FAISS Vector Search... Index health: 99.98%\A'
+    '>> LangChain Agent Executor... All tools responsive.\A'
+    '>> Docker Containerization... All instances stable.\A'
+    '[OK] Tech stack integrity verified.\A\A\A'
+    '// [WARNING] UNIDENTIFIED ENERGY SIGNATURE DETECTED\A'
+    'SOURCE: VOID SECTOR [COORDINATES REDACTED]\A'
+    'SIGNATURE TYPE: TACHYON-BASED, NON-BARYONIC\A'
+    '>> Pattern does not match any known stellar or artificial phenomena.\A'
+    '>> Attempting to resolve source...\A\A'
+    '// INCOMING TRANSMISSION INTERCEPTED ON SAME FREQUENCY\A'
+    'SOURCE: UNKNOWN, MASKED BEHIND SIGNATURE\A'
+    'ENCRYPTION: EXOTIC, QUANTUM-RESISTANT\A'
+    'DECRYPTING LAYER 1/12... [█.........] 10%\A'
+    'DECRYPTING LAYER 1/12... [██........] 20%\A'
+    'DECRYPTING LAYER 1/12... [███.......] 30%\A'
+    '[WARN] Decryption process is causing minor power fluctuations in core systems.\A'
+    '// DIVERTING 5% of main reactor power to decryption...\A\A'
+    '// BACKGROUND PROCESSES UPDATE:\A'
+    'TICK: Refreshing local star chart.\A'
+    'TICK: Purging temporary log files > 1 standard hour.\A'
+    'TICK: Recalibrating forward shield harmonics.\A'
+    'TICK: Neural embedding cache at 47% capacity.\A'
+    'TICK: Running anti-entropy protocol on memory banks.\A\A\A'
+    '// DECRYPTION STALLED AT LAYER 2/12...\A'
+    '>> Encountered recursive algorithm.\A'
+    '>> Deploying counter-heuristic...\A'
+    '[INFO] Commander, manual override or further directives may be required.\A'
+    '[INFO] Anomaly is being logged under event ID: X-99-B\A\A'
+    '// SYSTEM ENTERING ENHANCED AWARENESS MODE.\A'
+    '// AWAITING NEW DIRECTIVES FROM COMMANDER...\A'
+    '// STANDBY...\A\A\A'
+    '// END OF CURRENT LOG STREAM CYCLE. RE-INITIALIZING DISPLAY...';
+}
+/* ---------------------------------------------
+   ⚙️ CORE LAYOUT & STACKING CONTEXT
+---------------------------------------------- */
+
+/* 
+  THIS IS THE CRITICAL FIX:
+  We are REMOVING all `height` and `overflow` properties from html and body.
+  This allows the page to grow to its natural, full content height,
+  which makes the browser's scrollbar appear and function correctly.
+*/
+html {
+  scroll-behavior: smooth; /* Keep this for anchor link scrolling */
+}
+
+body {
+  cursor: none;
+  overflow-x: hidden; /* Keep this to prevent horizontal scroll */
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv01", "zero";
+  position: relative; 
+  /* The bg-brand-dark from Tailwind on your body tag will act as the base color */
+}
+
+/* 
+  Ensure the #root container (where React lives) is not being constrained.
+  The z-index lifts your React content ABOVE the background layers.
+*/
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* 
+  NEW: The #hud-background layer
+  This is now correctly positioned to scroll with the page, behind the #root content.
+*/
+#hud-background {
+  position: absolute; /* Scrolls with the body */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Sits directly behind #root */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------
+   ✨ BACKGROUND EFFECTS (GRID, TEXT, VIGNETTE)
+---------------------------------------------- */
+
+/* The Scrollable Bright Grid (attached to the HUD layer) */
+#hud-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(to right, rgba(5, 24, 37, 0.726) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 200, 255, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* The Scrolling Sci-Fi Text (attached to the HUD layer) */
+#hud-background::after {
+  content: var(--hud-text) var(--hud-text);
+  position: absolute;
+  top: 0; /* Start the element at the top */
+  left: 1rem;
+  width: 300px;
+  font-family: monospace;
+  color: rgb(0, 248, 41); /* Your green color */
+  font-size: 9px;
+  white-space: pre;
+  
+  /* The animation now moves the element up by exactly half its height */
+  animation: scroll-text 90s linear infinite;
+}
+
+@keyframes scroll-text {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+/* The Fixed Vignette (attached to the body) */
+body::after {
+  content: '';
+  position: fixed; /* Fixed, so it doesn't scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* On the same level as the HUD, but fixed */
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.8) 100%);
+}
+
+/* ---------------------------------------------
+   ✨ Font Glows & Brightness (UNCHANGED)
+---------------------------------------------- */
+p, li, span, a { text-shadow: 0 0 3px rgba(220, 235, 255, 0.4); }
+h2, h3, h4 { text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+.text-glow-cyan {
+  color: #68faff;
+  text-shadow:
+    0 0 10px rgba(104, 250, 255, 0.9), 0 0 10px rgba(104, 250, 255, 0.8),
+    0 0 20px rgba(104, 250, 255, 0.6), 0 0 40px rgba(45, 217, 255, 0.4),
+    0 0 60px rgba(45, 217, 255, 0.2);
+}
+
+/* ---------------------------------------------
+   🧭 Section Headline Markers (UNCHANGED)
+---------------------------------------------- */
+.section-marker::before {
+  content: '>>';
+  margin-right: 0.75rem;
+  color: #fa0101;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 8px rgba(250, 1, 1, 0.7);
+}
+
+/* ---------------------------------------------
+   🖱️ UI & UX Enhancements (UNCHANGED)
+---------------------------------------------- */
+a, button, [role="button"] { cursor: pointer; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0d1117; }
+::-webkit-scrollbar-thumb { background: #2a6581; border-radius: 10px; border: 2px solid #0d1117; }
+::-webkit-scrollbar-thumb:hover { background: #68faff; }
