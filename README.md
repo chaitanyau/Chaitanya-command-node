@@ -22,6 +22,13 @@ This contains everything needed to run locally.
 3. Run the app:
    `npm run dev`
 
+Copyright © 2025 Chaitanya
+
+All rights reserved.
+
+This source code is proprietary. Unauthorized copying, modification, distribution, or use of this code is strictly prohibited without express written permission.
+
+
 
 
 ---
